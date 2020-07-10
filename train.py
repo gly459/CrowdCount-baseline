@@ -56,7 +56,7 @@ def main():
     args.workers = 4
     args.seed = time.time()
     args.print_freq = 100
-    args.log_path = './train_log/lr'
+    args.log_path = './train_log/baseline'
     with open(args.train_json, 'r') as outfile:        
         train_list = json.load(outfile)
     with open(args.test_json, 'r') as outfile:       
@@ -74,8 +74,8 @@ def main():
     '''optimizer = torch.optim.SGD(model.parameters(), args.lr,
                                 momentum=args.momentum,
                                 weight_decay=args.decay)'''
-    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr*5)
-    schedular = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.995)
+    optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
+    #schedular = torch.optim.lr_scheduler.StepLR(optimizer, step_size=1, gamma=0.995)
 
     writer = SummaryWriter(log_dir=args.log_path)
 
@@ -94,10 +94,8 @@ def main():
             
     for epoch in range(args.start_epoch, args.epochs):
         
-        #adjust_learning_rate(optimizer, epoch)
-        #writer.add_scalar('lr',args.lr, epoch)
         train(train_list, model, criterion, optimizer, epoch)
-        schedular.step()
+        #schedular.step()
         print('check model on training set...')
         mae = validate(train_list, model, criterion)
         writer.add_scalar('MAE_train', mae, epoch)
