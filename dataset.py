@@ -9,7 +9,7 @@ import torchvision.transforms.functional as F
 
 class listDataset(Dataset):
     def __init__(self, root, shape=None, transform=None,  train=False, seen=0, batch_size=1, num_workers=4):
-        if False:
+        if train:
             root = root *4
         
         self.nSamples = len(root)
