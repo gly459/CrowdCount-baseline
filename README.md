@@ -11,6 +11,6 @@ the architecture of the model is the CSRNet A, VGG16 backbone with the dilation 
 ### result
 Shanghai Tech part A
 
-MAE:67.906
+MAE:67.906  MSE:117.762
 
 ps:here, I don't split the validation set from the training set and just use the test set, so it's normal the result is better.
