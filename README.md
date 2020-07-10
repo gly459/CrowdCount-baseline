@@ -1,6 +1,6 @@
 # CrowdCount-baseline
 
-the architecture of the code is the same as [CSRNet](https://arxiv.org/abs/1802.10062), which is the implementation of the paper[CSRNet: Dilated Convolutional Neural Networks for Understanding the Highly Congested Scenes](https://arxiv.org/abs/1802.10062).
+the architecture of the code is the same as [CSRNet](https://arxiv.org/abs/1802.10062), which is the official implementation of the paper[CSRNet: Dilated Convolutional Neural Networks for Understanding the Highly Congested Scenes](https://arxiv.org/abs/1802.10062).
 
 ### train
 try `python train.py part_A_train.json part_A_test.py 0 b_` to start the training process
