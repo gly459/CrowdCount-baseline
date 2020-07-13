@@ -35,6 +35,31 @@ class baseline(nn.Module):
             elif isinstance(m, nn.BatchNorm2d):
                 nn.init.constant_(m.weight, 1)
                 nn.init.constant_(m.bias, 0)
+                
+class baseline_bn(nn.Module):
+    def __init__(self, load_weights=False, dilation=False):
+        super(baseline_bn, self).__init__()
+        self.seen = 0
+        self.dilation = dilation
+        self.frontend_feat = [64, 64, 'M', 128, 128, 'M', 256, 256, 256, 'M', 512, 512, 512]
+        self.backend_feat  = [512, 512, 512,256,128,64]
+        self.frontend = make_layers(self.frontend_feat, batch_norm=True)
+        self.backend = make_layers(self.backend_feat, batch_norm=True, in_channels=512, dilation=self.dilation)
+        self.output_layer = nn.Sequential(
+            nn.Conv2d(64, 1, kernel_size=1),
+            nn.ReLU(inplace=True)
+        )
+        if not load_weights:
+            mod = models.vgg16_bn(pretrained = True)
+            self._initialize_weights()
+            self.frontend.load_state_dict(mod.features[0:33].state_dict())
+
+    def forward(self, x):
+        x = self.frontend(x)
+        x = self.backend(x)
+        x = self.output_layer(x)
+
+        return x
 
 def make_layers(cfg, in_channels = 3,batch_norm=False,dilation = False, deform=False):
     if dilation:
