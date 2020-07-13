@@ -14,7 +14,7 @@ Shanghai Tech part A
 MAE:67.906  MSE:117.762
 | model         | MAE  | MSE  |
 | ------------- | ---- | ---- |
-| VGG           |      |      |
+| VGG           |67.906|117.762|
 | VGG in CSRNet |      |      |
 | VGG*          |      |      |
 
