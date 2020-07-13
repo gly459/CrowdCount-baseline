@@ -23,7 +23,7 @@ def load_data(img_path,train = True):
 
         img = img.crop((dx,dy,crop_size[0]+dx,crop_size[1]+dy))
         target = target[dy:crop_size[1]+dy,dx:crop_size[0]+dx] 
-        
+    if train:
         if random.random()>0.8:
             target = np.fliplr(target)
             img = img.transpose(Image.FLIP_LEFT_RIGHT)
