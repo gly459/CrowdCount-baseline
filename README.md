@@ -7,7 +7,7 @@ try `python train.py part_A_train.json part_A_test.py 0 b_` to start the trainin
 
 disable the random crop process in image.py and change the possibility of the random horizontal flipping to 0.5 when train the VGG*.
 
-limited to the GPUS, here the batch size I apply is 8.
+limited to the GPUs, here the batch size I apply is 8.
 
 ### model
 the architecture of the model is the CSRNet A, VGG16 backbone with the dilation rate 1 of the decoder.
