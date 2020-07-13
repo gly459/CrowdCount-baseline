@@ -15,7 +15,7 @@ MAE:67.906  MSE:117.762
 | model         | MAE  | MSE  |
 | ------------- | ---- | ---- |
 | VGG           |67.906|117.762|
-| VGG in CSRNet |      |      |
-| VGG*          |      |      |
+| VGG in CSRNet |69.7|116.0|
+| VGG*          |65.721|109.128|
 
 ps:here, I don't split the validation set from the training set and just use the test set, so it's normal the result is better.
