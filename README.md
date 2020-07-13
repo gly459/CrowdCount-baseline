@@ -19,6 +19,7 @@ Shanghai Tech part A
 | VGG* in ADSCNet|66.5|106.9|
 
 VGG* refers to VGG with batchnormlization
+
 ADSCNet:[Adaptive Dilated Network with Self-Correction Supervision for Counting](https://openaccess.thecvf.com/content_CVPR_2020/papers/Bai_Adaptive_Dilated_Network_With_Self-Correction_Supervision_for_Counting_CVPR_2020_paper.pdf)
 
 ps:here, I don't split the validation set from the training set and just use the test set, so it's normal the result is better.
