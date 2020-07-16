@@ -22,7 +22,7 @@ from tensorboardX import SummaryWriter
 from tqdm import tqdm
 import loading_data
 
-parser = argparse.ArgumentParser(description='PyTorch CSRNet')
+parser = argparse.ArgumentParser(description='PyTorch VGG bn')
 
 parser.add_argument('train_json', metavar='TRAIN',
                     help='path to train json')
