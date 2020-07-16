@@ -21,7 +21,7 @@ import time
 from tensorboardX import SummaryWriter
 from tqdm import tqdm
 
-parser = argparse.ArgumentParser(description='PyTorch CSRNet')
+parser = argparse.ArgumentParser(description='PyTorch VGG')
 
 parser.add_argument('train_json', metavar='TRAIN',
                     help='path to train json')
